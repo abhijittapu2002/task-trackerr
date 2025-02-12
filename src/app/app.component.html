@@ -1,0 +1,144 @@
+<div class="container" [attr.inert]="isModalOpen ? true : null">
+    <button class="btn btn-success" (click)="openModal()">Add Task</button>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th style="background-color: red;">Important and Urgent</th>
+          <th style="background-color: orange;">Important but Not Urgent</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <table class="table" border="2px solid black" style="margin-bottom: 40px;width:750px;">
+              <thead>
+                <tr style="background-color: lightgray;">
+                  <th>sl.NO</th>
+                  <th>Project</th>
+                  <th>Activity</th>
+                  <th>Starttime</th>
+                  <th>Endtime</th>
+                  <th>Status</th>
+                  <th>Priority</th>
+                  <th>Remarks</th>
+                </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let item of importantUrgent" class="blue-background" (dblclick)="onTaskDoubleClick(item)">
+  
+                  <td>{{item.slno}}</td>
+                  <td>{{item.project}}</td>
+                  <td>{{item.activity}}</td>
+                  <td>{{item.starttime}}</td>
+                  <td>{{item.endtime}}</td>
+                  <td>{{item.status}}</td>
+                  <td>{{item.priority}}</td>
+                  <td>{{item.remarks}}</td>
+                  <td>
+                    <button class="btn btn-danger" (click)="deleteTask(item.id)">Delete</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+          <td>
+            <table class="table" border="2px solid black" style="margin-bottom: 20px;width:600px">
+              <thead>
+                <tr style="background-color: lightgray;">
+                  <th>sl.NO</th>
+                  <th>Project</th>
+                  <th>Activity</th>
+                  <th>Starttime</th>
+                  <th>Endtime</th>
+                  <th>Status</th>
+                  <th>Priority</th>
+                  <th>Remarks</th>
+                </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let item of importantNotUrgent" style="background-color: blue;" (dblclick)="onTaskDoubleClick(item)">
+  
+                  <td>{{item.slno}}</td>
+                  <td>{{item.project}}</td>
+                  <td>{{item.activity}}</td>
+                  <td>{{item.starttime}}</td>
+                  <td>{{item.endtime}}</td>
+                  <td>{{item.status}}</td>
+                  <td>{{item.priority}}</td>
+                  <td>{{item.remarks}}</td>
+                  <td>
+                    <button class="btn btn-danger" (click)="deleteTask(item.id)">Delete</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+        <tr style="background-color: blueviolet;">
+          <th style="background-color: greenyellow;">Not Important but Urgent</th>
+          <th style="background-color: green;">Not Important and Not Urgent</th>
+        </tr>
+        <tr>
+          <td>
+            <table class="table" border="2px solid black" style="margin-bottom: 30px;width:750px">
+              <thead>
+                <tr style="background-color: lightgray;">
+                  <th>sl.NO</th>
+                  <th>Project</th>
+                  <th>Activity</th>
+                  <th>Starttime</th>
+                  <th>Endtime</th>
+                  <th>Status</th>
+                  <th>Priority</th>
+                  <th>Remarks</th>
+                </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let item of notImportantUrgent" style="background-color: blue;" (dblclick)="onTaskDoubleClick(item)">
+  
+                  <td>{{item.slno}}</td>
+                  <td>{{item.project}}</td>
+                  <td>{{item.activity}}</td>
+                  <td>{{item.starttime}}</td>
+                  <td>{{item.endtime}}</td>
+                  <td>{{item.status}}</td>
+                  <td>{{item.priority}}</td>
+                  <td>{{item.remarks}}</td>
+                  <td>
+                    <button class="btn btn-danger" (click)="deleteTask(item.id)">Delete</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+          <td>
+            <table class="table" border="2px solid black" style="width: 600px;">
+              <thead>
+                <tr style="background-color: lightgray;">
+                  <th>sl.NO</th>
+                  <th>Project</th>
+                  <th>Activity</th>
+                  <th>Starttime</th>
+                  <th>Endtime</th>
+                  <th>Status</th>
+                  <th>Priority</th>
+                  <th>Remarks</th>
+                </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let item of notImportantNotUrgent" style="background-color: blue;" (dblclick)="onTaskDoubleClick(item)">
+  
+                  <td>{{item.slno}}</td>
+                  <td>{{item.project}}</td>
+                  <td>{{item.activity}}</td>
+                  <td>{{item.starttime}}</td>
+                  <td>{{item.endtime}}</td>
+                  <td>{{item.status}}</td>
+                  <td>{{item.priority}}</td>
+                  <td>{{item.remarks}}</td>
+                  <td>
+                    <button class="btn btn-danger" (click)="deleteTask(item.id)">Delete</button>
+                  </td>
+                </tr>
+              </tbody>
+<router-outlet />
